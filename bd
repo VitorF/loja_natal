@@ -1,0 +1,42 @@
+CREATE DATABASE loja_virtual;
+
+USE loja_virtual;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    tipo ENUM('admin', 'usuario') NOT NULL
+);
+
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    valor DECIMAL(10, 2),
+    foto VARCHAR(255),
+    quantidade INT
+);
+
+CREATE TABLE carrinho (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    produto_id INT,
+    quantidade INT,
+    valor_total DECIMAL(10, 2),
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE CASCADE
+);
+-- usuarios e senhas
+INSERT INTO usuarios (username, password, tipo) VALUES 
+('admin', 'admin123', 'admin'),
+('usuario1', 'senha123', 'usuario'),
+('usuario2', 'senha456', 'usuario');
+
+
+
+INSERT INTO produtos (nome, valor, foto, quantidade) VALUES 
+('Pelucia do papai noel', 30.00, 'https://cdn.awsli.com.br/2500x2500/1594/1594408/produto/299625087/7908677338255-wfpwc6okxq.jpg', 10),
+('Luzes de natal', 34.00, 'https://m.media-amazon.com/images/I/712uai1VcqL.__AC_SY445_SX342_QL70_ML2_.jpg', 15),
+('Arvore de natal', 300.00, 'https://m.media-amazon.com/images/I/71J0B-LDo4L.__AC_SX300_SY300_QL70_ML2_.jpg', 20),
+('Peru chester', 100.00, 'https://brf-perdigao-cms.luego-labs.com.br/main/public/_images/cf302e56ba103fa70ce914a618369178ec2388d7.webp', 12),
+('Panetone"', 9999.00, 'https://m.media-amazon.com/images/I/81IMPn8sSjL.__AC_SX300_SY300_QL70_ML2_.jpg', 8);

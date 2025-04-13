@@ -52,12 +52,19 @@ git clone [https://github.com/VitorF/loja_natal.git](https://github.com/VitorF/l
 ## 🔑 Informações de Login
 
 Para acessar o sistema, utilize as seguintes credenciais:
-
+ADM:
 - **Usuário:** admin
 - **Senha:** admin123
 
-Estas credenciais estão configuradas no arquivo do banco de dados. Recomenda-se fortemente que você altere essas informações após o primeiro acesso por motivos de segurança.
+Usuarios:
 
+- **Usuário:** usuario1
+- **Senha:** senha123
+
+- **Usuário:** usuario2
+- **Senha:** senha456
+- 
+Estas credenciais estão configuradas no arquivo do banco de dados. 
 ## 👩‍💻 Uso
 
 ### Área do Cliente
